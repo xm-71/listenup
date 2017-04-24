@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class PodcastListFragment extends Fragment {
     private PodcastListAdapter mPodcastListAdapter;
     private List<Podcast> mAPIPodcasts;
     private ImageView mThumbnailImageView;
+    private ProgressBar mProgressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class PodcastListFragment extends Fragment {
         mPodcastRecyclerView = (RecyclerView) view.findViewById(R.id.podcastlist_recycler_view);
         mPodcastRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mThumbnailImageView = (ImageView) view.findViewById(R.id.mThumbnail);
+
 
         //MAKE CONNECTION TO THE API
         GPodderAPI client = ServiceGenerator.createService(GPodderAPI.class);

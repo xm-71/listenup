@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import edu.iupui.jamcanno.listenup.model.Tag;
@@ -30,17 +31,19 @@ public class TagListFragment extends Fragment {
     private RecyclerView mTagListRecyclerView;
     private TagAdapter mTagAdapter;
     private List<Tag> mAPITags;
+    public ProgressBar mProgressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
         //INFLATE LAYOUT FILE
-        View view = inflater.inflate(R.layout.fragment_taglist, container, false);
+        final View view = inflater.inflate(R.layout.fragment_taglist, container, false);
 
         //WIRE UP RECYCLER VIEW
         mTagListRecyclerView = (RecyclerView) view.findViewById(R.id.taglist_recycler_view);
         mTagListRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mProgressBar = (ProgressBar) view.findViewById(R.id.taglist_progress);
 
         //MAKE CONNECTION TO THE API
         GPodderAPI client = ServiceGenerator.createService(GPodderAPI.class);
@@ -56,6 +59,9 @@ public class TagListFragment extends Fragment {
                 Log.d("LISTENUP", String.valueOf(tags.length));
 
                 updateUI(tags);
+                mProgressBar.setVisibility(view.GONE);
+                mTagListRecyclerView.setVisibility(view.VISIBLE);
+                mTagAdapter.notifyDataSetChanged();
 
             }
 
