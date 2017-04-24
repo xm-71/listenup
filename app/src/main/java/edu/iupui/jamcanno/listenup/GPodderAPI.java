@@ -25,4 +25,9 @@ public interface GPodderAPI {
 
     //mygpo_link
 
+    @GET("api/2/devices/{username}.json")
+    Call<String> getDevices(@Path("username") String username);
+
+
+
 }
