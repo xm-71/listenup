@@ -4,6 +4,7 @@ import edu.iupui.jamcanno.listenup.model.Tag;
 import edu.iupui.jamcanno.listenup.model.Podcast;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -27,6 +28,12 @@ public interface GPodderAPI {
 
     @GET("api/2/devices/{username}.json")
     Call<String> getDevices(@Path("username") String username);
+
+    @POST("api/2/auth/{username}.json")
+    Call<String> getLogin(@Path("username") String username);
+
+    @GET("/subscriptions/{username}.json")
+    Call<String> getSubscriptions(@Path("username") String username);
 
 
 

@@ -16,10 +16,10 @@ public class LoginActivity extends SingleFragmentActivity{
             return new LoginFragment().newInstance();
         }
 
-    public static Intent newIntent(Context packageContext) {
-
-        Intent intent = new Intent(packageContext, DeviceListActivity.class);
-        return intent;
-    }
+//    public static Intent newIntent(Context packageContext) {
+//
+//        Intent intent = new Intent(packageContext, DeviceListActivity.class);
+//        return intent;
+//    }
 
 }

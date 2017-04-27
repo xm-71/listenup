@@ -24,6 +24,7 @@
         <activity android:name=".DeviceListActivity"></activity>
         <activity android:name=".PodcastListActivity"></activity>
         <activity android:name=".PodcastDetailActivity"></activity>
+        <activity android:name=".SubscriptionsActivity"></activity>
 
 
     </application>
